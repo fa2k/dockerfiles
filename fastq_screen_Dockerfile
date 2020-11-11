@@ -1,0 +1,7 @@
+FROM continuumio/miniconda
+
+RUN conda install -y -c conda-forge -c bioconda fastq-screen
+RUN cd $(dirname $(readlink -f $(which fastq_screen))) && fastq_screen --get_genomes
+RUN cd $(dirname $(readlink -f $(which fastq_screen))) && \
+            ( cat FastQ_Screen_Genomes/fastq_screen.conf ; printf "BOWTIE2 /opt/conda/bin/bowtie2\naligner bowtie2\n") \
+                > fastq_screen.conf
