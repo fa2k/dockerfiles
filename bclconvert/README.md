@@ -7,6 +7,7 @@ https://support.illumina.com/sequencing/sequencing_software/bcl-convert/download
 
 Then run:
 
-    docker build -t bcl-convert:3.9.x .
+    docker build -t bclconvert:3.9.x .
 
 Replace 3.9.x with the correct version.
+
