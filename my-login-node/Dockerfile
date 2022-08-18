@@ -5,7 +5,11 @@ RUN chmod +x /tini
 RUN apt-get update && apt-get -y install openssh-server sudo screen htop && rm /etc/ssh/ssh_host_*
 RUN mkdir -p /var/run/sshd
 RUN sed -i 's/\(^%sudo.*\)ALL$/\1NOPASSWD: ALL/g' /etc/sudoers
-VOLUME /etc/ssh
+RUN echo "HostKey /hostkeys/etc/ssh/ssh_host_rsa_key" >> /etc/ssh/sshd_config
+RUN echo "HostKey /hostkeys/etc/ssh/ssh_host_ecdsa_key" >> /etc/ssh/sshd_config
+RUN echo "HostKey /hostkeys/etc/ssh/ssh_host_ed25519_key" >> /etc/ssh/sshd_config
+RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+VOLUME /hostkeys/etc/ssh
 EXPOSE 22
 ENTRYPOINT ["/tini", "--"]
-CMD useradd -G sudo -s /usr/bin/bash -u "$USER_ID" "$USER_NAME" && ssh-keygen -A && /usr/sbin/sshd -e -D -o AllowUsers=$USER_NAME -o PasswordAuthentication=no
+CMD useradd -G sudo -s /usr/bin/bash -u "$USER_ID" "$USER_NAME" && ssh-keygen -A -f /hostkeys && /usr/sbin/sshd -e -D -o AllowUsers=$USER_NAME
