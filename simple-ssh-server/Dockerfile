@@ -16,7 +16,9 @@ RUN useradd -m -s /usr/bin/bash "$USER_NAME"
 RUN mkdir /home/"$USER_NAME"/.ssh
 ADD authorized_keys /home/"$USER_NAME"/.ssh/authorized_keys
 RUN chown -R "$USER_NAME":"$USER_NAME" /home/"$USER_NAME"/.ssh
-RUN chmod 755 /home/"$USER_NAME"/.ssh
-RUN chmod 644 /home/"$USER_NAME"/.ssh/authorized_keys
+RUN chmod 700 /home/"$USER_NAME"/.ssh
+RUN chmod 600 /home/"$USER_NAME"/.ssh/authorized_keys
+#CMD ssh-keygen -A -f /hostkeys && \
+#        /usr/sbin/sshd -e -D -o AllowUsers=$USER_NAME -o LogLevel=DEBUG3
 CMD ssh-keygen -A -f /hostkeys && \
-        /usr/sbin/sshd -e -D -o AllowUsers=$USER_NAME -o LogLevel=DEBUG3
+        /usr/sbin/sshd -e -D -o AllowUsers=$USER_NAME
