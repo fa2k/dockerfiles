@@ -1,3 +1,3 @@
-FROM continuumio/miniconda:latest
+FROM continuumio/miniconda3:latest
 
-RUN conda install -c bioconda python pysam pandas
+RUN conda install -c bioconda pysam anaconda
