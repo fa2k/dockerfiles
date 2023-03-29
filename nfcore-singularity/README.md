@@ -1,7 +1,7 @@
-# nf-core tools in Docker, with singularity
+# nf-core tools with singularity support, in a Docker image
 
-Purpose: Download pipeline with singularity images, even if you don't have access to any
-Internet-connected computer with singularity on.
+Purpose: Download pipelines and associated singularity images, even if you don't have access to any
+Internet-connected computer with singularity on (but have a system with docker).
 
 ## Build example:
 
