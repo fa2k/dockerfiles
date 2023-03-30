@@ -11,8 +11,5 @@ Internet-connected computer with singularity on (but have a system with docker).
 
     docker run -ti --rm -v $PWD:$PWD -w $PWD nfcore nf-core download -r dev -c singularity raredisease
 
-
-
-
-
-
+A large amount of data will be written to /tmp in the Docker container, and Docker may run 
+out of disk space. Binding /tmp does not seem to work.
