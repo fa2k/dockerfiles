@@ -14,7 +14,8 @@ RUN wget \
     && bash Miniconda3-latest-Linux-x86_64.sh -b \
     && rm -f Miniconda3-latest-Linux-x86_64.sh
 
-# Enable bioconda as described on the Bioconda
+# Enable bioconda as described on the Bioconda website (the usual shortcuts
+# like -c don't work)
 RUN /root/miniconda3/bin/conda config --add channels defaults && \
     /root/miniconda3/bin/conda config --add channels bioconda && \
     /root/miniconda3/bin/conda config --add channels conda-forge && \
