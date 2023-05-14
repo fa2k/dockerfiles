@@ -2,7 +2,7 @@ FROM ubuntu:latest
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
-RUN apt-get update && apt-get -y install openssh-server screen vim && rm /etc/ssh/ssh_host_*
+RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install openssh-server screen vim && rm /etc/ssh/ssh_host_*
 RUN mkdir -p /var/run/sshd
 RUN echo "HostKey /hostkeys/etc/ssh/ssh_host_rsa_key" >> /etc/ssh/sshd_config && \
 	echo "HostKey /hostkeys/etc/ssh/ssh_host_ecdsa_key" >> /etc/ssh/sshd_config && \

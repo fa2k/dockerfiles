@@ -2,7 +2,7 @@ FROM ubuntu:latest
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
-RUN apt-get update && apt-get -y install openssh-server screen htop sudo git vim build-essential man && rm /etc/ssh/ssh_host_*
+RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install openssh-server screen htop sudo git vim build-essential man && rm /etc/ssh/ssh_host_*
 RUN yes | /usr/local/sbin/unminimize
 RUN mkdir -p /var/run/sshd
 RUN sed -i 's/\(^%sudo.*\)ALL$/\1NOPASSWD: ALL/g' /etc/sudoers
