@@ -6,4 +6,4 @@ It may be hard to bootstrap from scratch in docker.
 
 Mapping:
 * /data : Blockchain data
-* /empowerchain : Client home dir, private keys etc
+* /empowerchain : Client home dir, private keys etc (i.e. what's usually $HOME/.empowerchain)
