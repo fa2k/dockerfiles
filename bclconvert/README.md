@@ -1,13 +1,19 @@
 # BCL Convert from Illumina
 
-To use this dockerfile, download and place the BCL Convert RPM file in the
-current directory. See download:
+To use this Dockerfile, download and place the BCL Convert RPM file in the
+current directory. It installs the RPM in Oracle Linux 8.
+
+The Dockerfile has hardcoded the major version of BCL Convert, and may need
+to be modified.
+
+Download:
 
 https://support.illumina.com/sequencing/sequencing_software/bcl-convert/downloads.html
 
 Then run:
 
-    docker build -t bclconvert:3.9.x .
+    docker build -t bclconvert --platform=linux/amd64 .
 
-Replace 3.9.x with the correct version.
+(Platform is only required when running docker on non-x86, like ARM64.)
+
 
