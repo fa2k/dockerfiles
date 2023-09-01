@@ -16,4 +16,10 @@ Then run:
 
 (Platform is only required when running docker on non-x86, like ARM64.)
 
+BCL Convert docs:
+
+User Guide (simple): https://support.illumina.com/downloads/bcl-convert-user-guide.html
+
+DRAGEN Docs - command line options: https://support-docs.illumina.com/SW/dragen_v42/Content/SW/DRAGEN/CommandLineOptions.htm
+
 
