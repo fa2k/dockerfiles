@@ -1,3 +1,3 @@
-FROM continuumio/miniconda3:latest
+FROM mambaorg/micromamba:latest
 
-RUN conda install -c bioconda pysam anaconda
+RUN micromamba install -n base -c bioconda -c anaconda -c conda-forge pysam anaconda
