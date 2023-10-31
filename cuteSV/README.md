@@ -1,7 +1,7 @@
-# cuteSV
-
-(I can't check if it's in BioContainers due to Server Error)
+# cuteSV 2.0.3
 
 https://github.com/tjiangHIT/cuteSV
 
-TODO does not work
+It's tricky to get the environment right. This will probably keep working well for
+cuteSV 2.0.3.
+

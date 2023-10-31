@@ -1,6 +1,3 @@
-FROM continuumio/miniconda3:latest
-RUN conda config --add channels defaults && \
-    conda config --add channels conda-forge && \
-    conda config --add channels bioconda && \
-    conda install pysam pandas numpy
+FROM mambaorg/micromamba:latest
 
+RUN micromamba install -n base -c bioconda -c anaconda -c conda-forge pysam anaconda
