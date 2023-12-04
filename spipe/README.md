@@ -20,3 +20,4 @@ Genome build:
             --output_dir hg38
 
 
+I don't know, this seems to silently fail if there isn't enough memory (or something else). Ensure that STAR is executed.
