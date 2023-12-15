@@ -1,6 +1,8 @@
 FROM ubuntu:22.04
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y curl tar wget clang pkg-config libssl-dev jq build-essential bsdmainutils git make ncdu gcc git jq chrony liblz4-tool bison
+ARG VERSION=v1.0.0
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y curl tar wget clang pkg-config libssl-dev jq build-essential bsdmainutils git make ncdu gcc git jq chrony liblz4-tool bison bash coreutils
 
 RUN wget https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer
 
@@ -17,7 +19,7 @@ RUN bash -l -c ' \
     source /root/.gvm/scripts/gvm && \
     git clone https://github.com/EmpowerPlastic/empowerchain.git && \
     cd empowerchain && \
-    git checkout v1.0.0 && \
+    git checkout $VERSION && \
     cd chain &&  PREFIX=/usr make install'
 
 RUN chmod -R a+rX /root/.gvm && chmod a+x /root
