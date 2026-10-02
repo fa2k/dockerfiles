@@ -1,4 +1,4 @@
-FROM oraclelinux:8
+FROM oraclelinux:9
 
 COPY bcl-convert-4.*.rpm /tmp/bcl-convert.rpm
 RUN yum install -y procps
